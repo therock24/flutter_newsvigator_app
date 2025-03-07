@@ -3,7 +3,7 @@ import 'package:flutter_newsvigator_app/features/daily_news/domain/entities/arti
 
 abstract class ArticleRepository {
   // API methods
-  Future<DataState<List<ArticleEntity>>> getNewsArticles();
+  Future<DataState<List<ArticleEntity>>> getTopNewsArticles();
 
   // Database methods
   Future < List < ArticleEntity >> getSavedArticles();
