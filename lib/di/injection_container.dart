@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_newsvigator_app/features/daily_news/data/data_sources/remote/news_api_service.dart';
 import 'package:flutter_newsvigator_app/features/daily_news/data/repository/article_repository_impl.dart';
 import 'package:flutter_newsvigator_app/features/daily_news/domain/repository/article_repository.dart';
-import 'package:flutter_newsvigator_app/features/daily_news/domain/usecases/get_article.dart';
+import 'package:flutter_newsvigator_app/features/daily_news/domain/usecases/get_top_articles.dart';
 import 'package:flutter_newsvigator_app/features/daily_news/presentation/bloc/article/remote/remote_article_bloc.dart';
 import '../core/constants/constants.dart';
 import '../features/daily_news/data/data_sources/local/app_database.dart';

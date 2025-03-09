@@ -68,6 +68,8 @@ dependencies:
   json_annotation: ^4.9.0
   pretty_dio_logger: ^1.4.0
   flutter_dotenv: ^5.2.1
+  dartz: ^0.10.1
+  mockito: ^5.4.4
 
 
 

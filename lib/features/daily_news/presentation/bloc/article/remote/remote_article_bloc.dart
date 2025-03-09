@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_newsvigator_app/core/resources/data_state.dart';
-import 'package:flutter_newsvigator_app/features/daily_news/domain/usecases/get_article.dart';
+import 'package:flutter_newsvigator_app/features/daily_news/domain/usecases/get_top_articles.dart';
 import 'package:flutter_newsvigator_app/features/daily_news/presentation/bloc/article/remote/remote_article_event.dart';
 import 'package:flutter_newsvigator_app/features/daily_news/presentation/bloc/article/remote/remote_article_state.dart';
 

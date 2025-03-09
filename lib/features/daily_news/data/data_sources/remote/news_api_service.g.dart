@@ -24,7 +24,7 @@ class _NewsApiService implements NewsApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<HttpResponse<GetNewsResponse>> getNewsArticles({
+  Future<HttpResponse<GetNewsResponse>> getTopNewsArticles({
     String? apiKey,
     String? country,
     String? category,
