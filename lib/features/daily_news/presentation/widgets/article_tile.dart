@@ -27,13 +27,16 @@ class ArticleWidget extends StatelessWidget {
       behavior: HitTestBehavior.opaque,
       onTap: _onTap,
       child: Container(
-        padding: const EdgeInsetsDirectional.only(start: 14, end: 14, bottom: 7, top: 7),
+        padding: const EdgeInsetsDirectional.only(
+            start: 14, end: 14, bottom: 7, top: 7),
         height: MediaQuery.of(context).size.width / 2.2,
         color: _getSequentialLightColor(index),
         child: Row(
           children: [
             _buildImage(context),
-            Expanded(child: _buildTitleAndDescription()), // Expanded to fill available space
+            Expanded(
+                child:
+                    _buildTitleAndDescription()), // Expanded to fill available space
             _buildRemovableArea(),
           ],
         ),
@@ -126,7 +129,8 @@ class ArticleWidget extends StatelessWidget {
             height: double.maxFinite,
             decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.08),
-                image: DecorationImage(image: imageProvider, fit: BoxFit.cover)),
+                image:
+                    DecorationImage(image: imageProvider, fit: BoxFit.cover)),
           ),
         ),
       ),

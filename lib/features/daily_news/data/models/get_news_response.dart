@@ -16,8 +16,8 @@ class GetNewsResponse {
       status: json['status'] ?? '',
       totalResults: json['totalResults'] ?? 0,
       articles: (json['articles'] as List<dynamic>?)
-          ?.map((article) => ArticleModel.fromJson(article))
-          .toList() ??
+              ?.map((article) => ArticleModel.fromJson(article))
+              .toList() ??
           [],
     );
   }
