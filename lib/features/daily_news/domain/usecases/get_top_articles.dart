@@ -1,14 +1,16 @@
+import 'package:flutter_newsvigator_app/core/resources/data_state.dart';
 import 'package:flutter_newsvigator_app/core/usecase/usecase.dart';
 import 'package:flutter_newsvigator_app/features/daily_news/domain/entities/article.dart';
 import 'package:flutter_newsvigator_app/features/daily_news/domain/repository/article_repository.dart';
 
-class GetSavedArticleUseCase implements UseCase<List<ArticleEntity>, void> {
+class GetTopArticlesUseCase
+    implements UseCase<DataState<List<ArticleEntity>>, void> {
   final ArticleRepository _articleRepository;
 
-  GetSavedArticleUseCase(this._articleRepository);
+  GetTopArticlesUseCase(this._articleRepository);
 
   @override
-  Future<List<ArticleEntity>> call({void params}) {
-    return _articleRepository.getSavedArticles();
+  Future<DataState<List<ArticleEntity>>> call({void params}) {
+    return _articleRepository.getTopNewsArticles();
   }
 }

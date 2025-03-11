@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 
 ThemeData theme() {
   return ThemeData(
-    scaffoldBackgroundColor: Colors.white,
-    fontFamily: 'Muli',
-    appBarTheme: appBarTheme()
-  );
+      scaffoldBackgroundColor: Colors.white,
+      fontFamily: 'Muli',
+      appBarTheme: appBarTheme());
 }
 
 AppBarTheme appBarTheme() {

@@ -1,4 +1,3 @@
-
 import 'package:floor/floor.dart';
 import 'package:flutter_newsvigator_app/features/daily_news/data/data_sources/local/DAO/article_dao.dart';
 import '../../models/article.dart';

@@ -99,9 +99,9 @@ class ArticleDetailsView extends HookWidget {
       decoration: BoxDecoration(
         image: article?.urlToImage != null && article!.urlToImage!.isNotEmpty
             ? DecorationImage(
-          image: NetworkImage(article!.urlToImage!),
-          fit: BoxFit.cover,
-        )
+                image: NetworkImage(article!.urlToImage!),
+                fit: BoxFit.cover,
+              )
             : null,
         color: Colors.grey[200], // Placeholder color
       ),

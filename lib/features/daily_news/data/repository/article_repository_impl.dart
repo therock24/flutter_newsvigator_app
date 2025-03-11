@@ -13,32 +13,50 @@ import '../data_sources/remote/news_api_service.dart';
 class ArticleRepositoryImpl implements ArticleRepository {
   final NewsApiService _newsApiService;
   final AppDatabase _appDatabase;
-  ArticleRepositoryImpl(this._newsApiService,this._appDatabase);
-  
+  ArticleRepositoryImpl(this._newsApiService, this._appDatabase);
+
   @override
   Future<DataState<List<ArticleModel>>> getTopNewsArticles() async {
-   try {
-    final httpResponse = await _newsApiService.getTopNewsArticles(
-      apiKey:newsAPIKey,
-      country:countryQuery,
-      category:categoryQuery,
-    );
-
-    if (httpResponse.response.statusCode == HttpStatus.ok) {
-      return DataSuccess(httpResponse.data.articles);
-    } else {
-      return DataFailed(
-        DioException(
-          error: httpResponse.response.statusMessage,
-          response: httpResponse.response,
-          type: DioExceptionType.unknown,
-          requestOptions: httpResponse.response.requestOptions
-        )
+    try {
+      final httpResponse = await _newsApiService.getTopNewsArticles(
+        apiKey: newsAPIKey,
+        country: countryQuery,
+        category: categoryQuery,
       );
+
+      if (httpResponse.response.statusCode == HttpStatus.ok) {
+        return DataSuccess(httpResponse.data.articles);
+      } else {
+        return DataFailed(DioException(
+            error: httpResponse.response.statusMessage,
+            response: httpResponse.response,
+            type: DioExceptionType.unknown,
+            requestOptions: httpResponse.response.requestOptions));
+      }
+    } on DioException catch (e) {
+      return DataFailed(e);
     }
-   } on DioException catch(e){
-    return DataFailed(e);
-   }
+  }
+
+  Future<DataState<List<ArticleEntity>>> getAllNewsArticles() async {
+    try {
+      final httpResponse = await _newsApiService.getAllNewsArticles(
+        apiKey: newsAPIKey,
+        searchQuery: 'bitcoin'
+      );
+
+      if (httpResponse.response.statusCode == HttpStatus.ok) {
+        return DataSuccess(httpResponse.data.articles);
+      } else {
+        return DataFailed(DioException(
+            error: httpResponse.response.statusMessage,
+            response: httpResponse.response,
+            type: DioExceptionType.unknown,
+            requestOptions: httpResponse.response.requestOptions));
+      }
+    } on DioException catch (e) {
+      return DataFailed(e);
+    }
   }
 
   @override
@@ -48,12 +66,13 @@ class ArticleRepositoryImpl implements ArticleRepository {
 
   @override
   Future<void> removeArticle(ArticleEntity article) {
-    return _appDatabase.articleDAO.deleteArticle(ArticleModel.fromEntity(article));
+    return _appDatabase.articleDAO
+        .deleteArticle(ArticleModel.fromEntity(article));
   }
 
   @override
   Future<void> saveArticle(ArticleEntity article) {
-    return _appDatabase.articleDAO.insertArticle(ArticleModel.fromEntity(article));
+    return _appDatabase.articleDAO
+        .insertArticle(ArticleModel.fromEntity(article));
   }
-  
 }
