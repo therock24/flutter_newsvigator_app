@@ -6,9 +6,9 @@ const _timeout = Duration(seconds: 10);
 
 class DioProvider {
   static Dio configure(
-      String baseUrl, {
-        bool requestBodyJson = true,
-      }) {
+    String baseUrl, {
+    bool requestBodyJson = true,
+  }) {
     final headers = <String, String>{
       Headers.contentTypeHeader: requestBodyJson
           ? Headers.jsonContentType
@@ -42,7 +42,6 @@ class DioProvider {
       ),
     );
   }
-
 
   static void _setupLoggingInterceptor(Dio dio) {
     dio.interceptors.add(
